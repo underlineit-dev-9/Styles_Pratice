@@ -43,16 +43,34 @@ function App(): React.JSX.Element {
         style={[
           styles.red,
           {
+            flex: 6,
             backgroundColor: colors.COLOR_PRIMARY,
             height: null,
             alignSelf: 'stretch',
           },
         ]}
       />
-      <View style={[styles.red, {backgroundColor: colors.COLOR_SECONDARY, alignSelf: 'center',}]} />
-      <View style={[styles.red, {backgroundColor: colors.COLOR_LIGHT,alignSelf: 'flex-end'}]} />
       <View
-        style={[styles.red, {backgroundColor: colors.COLOR_MINIMUM_LIGHT}]}
+        style={[
+          styles.red,
+          {
+            flex: 7,
+            backgroundColor: colors.COLOR_SECONDARY,
+            alignSelf: 'center',
+          },
+        ]}
+      />
+      <View
+        style={[
+          styles.red,
+          {flex: 1, backgroundColor: colors.COLOR_LIGHT, alignSelf: 'flex-end'},
+        ]}
+      />
+      <View
+        style={[
+          styles.red,
+          {flex: 1, backgroundColor: colors.COLOR_MINIMUM_LIGHT},
+        ]}
       />
     </View>
   );
@@ -64,7 +82,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     backgroundColor: '#E8BCB9',
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'flex-start',
 
