@@ -28,90 +28,63 @@ import {
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
+const colors = {
+  COLOR_PRIMARY: '#072E33',
+  COLOR_SECONDARY: '#0C7078',
+  COLOR_LIGHT: '#6DA5C0',
+  COLOR_MINIMUM_LIGHT: '#0F9690',
+};
 
-function Section({children, title}: SectionProps): React.JSX.Element {
+function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
-    <View style={styles.sectionContainer}>
-      <Text
+    <View style={styles.container}>
+      <View
         style={[
-          styles.sectionTitle,
+          styles.red,
           {
-            color: isDarkMode ? Colors.white : Colors.black,
+            backgroundColor: colors.COLOR_PRIMARY,
+            height: null,
+            alignSelf: 'stretch',
           },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+        ]}
+      />
+      <View style={[styles.red, {backgroundColor: colors.COLOR_SECONDARY, alignSelf: 'center',}]} />
+      <View style={[styles.red, {backgroundColor: colors.COLOR_LIGHT,alignSelf: 'flex-end'}]} />
+      <View
+        style={[styles.red, {backgroundColor: colors.COLOR_MINIMUM_LIGHT}]}
+      />
     </View>
   );
 }
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    margin: 20,
+    marginTop: 30,
+    backgroundColor: '#E8BCB9',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'flex-start',
+
+    // justifly content is from horizontal movements and alignItems is for vertical
   },
-  sectionTitle: {
+  boldAndBlue: {
+    fontWeight: 'bold',
+    color: 'blue',
+  },
+  bigAndGreen: {
     fontSize: 24,
-    fontWeight: '600',
+    color: 'green',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  red: {
+    height: 60,
+    width: 60,
+    backgroundColor: colors.COLOR_SECONDARY,
+    borderRadius: 15,
+    borderColor: 'gray',
+    borderWidth: 5,
   },
 });
 
