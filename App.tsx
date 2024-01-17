@@ -7,6 +7,8 @@
 
 import React from 'react';
 import type {PropsWithChildren} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+// import 
 import {
   SafeAreaView,
   ScrollView,
@@ -24,6 +26,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import HomeStacknavigator from './src/Navigators/Navigation';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -36,30 +39,10 @@ const colors = {
 };
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
   return (
-    <View style={styles.container}>
-      <View
-        style={[
-          styles.red,
-          {
-            backgroundColor: colors.COLOR_PRIMARY,
-          },
-        ]}
-      />
-      <View
-        style={[
-          styles.red,
-          {
-            backgroundColor: colors.COLOR_SECONDARY,
-          },
-        ]}
-      />
-      <View style={[styles.red, {backgroundColor: colors.COLOR_LIGHT}]} />
-      <View
-        style={[styles.red, {backgroundColor: colors.COLOR_MINIMUM_LIGHT}]}
-      />
-    </View>
+    <NavigationContainer>
+      <HomeStacknavigator/>
+    </NavigationContainer>
   );
 }
 
