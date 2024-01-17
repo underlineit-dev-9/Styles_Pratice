@@ -43,10 +43,7 @@ function App(): React.JSX.Element {
         style={[
           styles.red,
           {
-            flex: 6,
             backgroundColor: colors.COLOR_PRIMARY,
-            height: null,
-            alignSelf: 'stretch',
           },
         ]}
       />
@@ -54,23 +51,13 @@ function App(): React.JSX.Element {
         style={[
           styles.red,
           {
-            flex: 7,
             backgroundColor: colors.COLOR_SECONDARY,
-            alignSelf: 'center',
           },
         ]}
       />
+      <View style={[styles.red, {backgroundColor: colors.COLOR_LIGHT}]} />
       <View
-        style={[
-          styles.red,
-          {flex: 1, backgroundColor: colors.COLOR_LIGHT, alignSelf: 'flex-end'},
-        ]}
-      />
-      <View
-        style={[
-          styles.red,
-          {flex: 1, backgroundColor: colors.COLOR_MINIMUM_LIGHT},
-        ]}
+        style={[styles.red, {backgroundColor: colors.COLOR_MINIMUM_LIGHT}]}
       />
     </View>
   );
@@ -82,9 +69,11 @@ const styles = StyleSheet.create({
     marginTop: 30,
     backgroundColor: '#E8BCB9',
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'flex-start',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    // alignItems: 'flex-start',
+    flexWrap:'wrap',
+    alignContent:'space-around',
 
     // justifly content is from horizontal movements and alignItems is for vertical
   },
@@ -98,7 +87,7 @@ const styles = StyleSheet.create({
   },
   red: {
     height: 60,
-    width: 60,
+    width: 100,
     backgroundColor: colors.COLOR_SECONDARY,
     borderRadius: 15,
     borderColor: 'gray',
